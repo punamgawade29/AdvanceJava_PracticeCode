@@ -1,0 +1,12 @@
+<html>
+
+<head>
+</head>
+<body>
+<form action="con.php"  method="POST">
+<input type="text" value="username" ><br>
+<input type="text" value="Password" ><br>
+<input type="button" value="click me" ><br>
+</form>
+</body>
+</html>
