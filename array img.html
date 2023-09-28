@@ -1,0 +1,55 @@
+<html> 
+<head>
+ 
+    <script>
+ 
+        var img_array = new Array('./nature.jpg','./leaf.jpg','./night.jpg');
+ 
+        var img = 0;
+ 
+        function Display(num) 
+			{
+ 
+            img = img + num;
+ 
+            if (img > img_array.length - 1) 
+			{
+ 
+                img = 0;
+ 
+            }
+ 
+            if (img < 0) {
+ 
+                img = img_array.length - 1;
+ 
+            }
+ 
+            document.Slide.src = img_array[img];
+ 
+        }
+ 
+    </script>
+ 
+</head>
+ 
+<body>
+ 
+    <img src="nature.jpg" width="400" height="220" name="Slide" />
+<img src="leaf.jpg" width="400" height="220" name="Slide" />
+<img src="night.jpg" width="400" height="220" name="Slide" />
+ 
+     
+    
+ 
+ 
+ 
+    <input type="button" value="Previous" onclick="Display(-1)">
+ 
+    <input type="button" value="Next" onclick="Display(1)">
+ 
+</body>
+ 
+ 
+ 
+</html>
