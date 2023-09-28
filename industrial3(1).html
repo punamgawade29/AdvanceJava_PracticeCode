@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Customer_Details</title>
+        
+  
+    </head>
+    
+    <style>  
+       .ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #238e0d;
+               }
+               .ul> li{
+                   float: left
+               }
+
+               li a{
+                   display: block;
+                   color: #ffe6b3;
+                   text-align: center;
+                   padding: 14px 16px;
+                   text-decoration: none;
+               }
+     
+               <body>
+
+
+  </style>
+</head>
+
+
+
+ <fieldset style=" color: red; hieght: 200px ;   font-size: 28px ; font-family: Algerian ; border: none; background-color: "  >
+       <center>         
+           <Marquee direction="left"> Digital Car Showroom </marquee>
+<lable Style='font-size: 22px'> Ghatkopar , Mumbai-400086 </lable>
+</center>
+</fieldset>
+
+
+<ul class="ul">
+
+<li style="float: Right ; display: block; color: orange;  text-align: center; "><a href="index.html"> Logout </a></li>
+ <li> <a href="Home.jsp" > Home</a> </li>
+            <li> <a href="AddCustomer.jsp" style="background-color: black"> Customers </a> </li>
+            <li> <a href="CarsDetails.jsp"> Cars</a> </li>
+            <li> <a href="Contactus.jsp"> Contact Us </a> </li>
+            <li>  <a href="Aboutus.jsp"> About </a></li>
+            
+</ul>
+</br>
+
+
+</fieldset>    
+<fieldset style="background-color:#ff9933; width: 100%; font-family: Arial Rounded MT Bold; height:auto" >
+<lebal style="font-family: Arial Rounded MT Bold " >Customer &nbsp; Details </lebal>
+
+</br></br>
+
+Customer_Name: <input type="text" name="studid" size="15" value="Sanket"/>&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;Cust_NO : <input type="text" name="Cust_No" size="15" value="9702044297"/>&nbsp;&nbsp;&nbsp;
+    
+
+
+</select>&nbsp;&nbsp;&nbsp;
+<input type="submit" value="Search" />
+
+
+<div class="filter">
+
+ </div>
+<br>
+<br>
+ <table border="1" >
+
+ 
+
+ <tr>
+
+ <th>Sr.no</th>
+
+ <th>First_Name</th>
+
+ <th>Last_Name</th>
+
+ <th>Address</th>
+
+ <th>Contact</th>
+
+ <th>Gender</th>
+ 
+ <th>Age</th>
+
+ </tr>
+             try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            Connection conn=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/ADMIN/Desktop/Sanket/demo.accdb","","");
+             // writer.println("Connection Created");
+                           
+              Statement s = conn.createStatement();
+              
+             
+              rs=s.executeQuery(" Select top 10 * from Customer ");
+              
+            while(rs.next())
+                 {
+                    /*
+                     //writer.println("</br> Result :- </br> "+ rs.getInt("ID")+"  "+rs.getString("Name")+" "+ rs.getInt("age"));
+                    int n=rs.getInt("ID");
+                    String str1=rs.getString("Name");
+                     int n2 = rs.getInt("age");
+                     out.println("</br> " + rs.getInt("ID")+"  "+rs.getString("Name")+" "+ rs.getInt("age"));
+                    // writer.println("</br>"+str1);
+                     
+                       */
+                     %>
+                     
+                 <tr>
+                        <td> <%=  rs.getInt("Sr_no")	%> </td>
+                        <td> <%=  rs.getString("First_name")	%> </td>
+                        <td> <%=  rs.getString("Last_Name")	%> </td>
+                        <td> <%=  rs.getString("Address")	%> </td>
+                        <td> <%=  rs.getInt("Contact")	%> </td>
+                        <td> <%=  rs.getString("Gender")	%> </td>
+                        <td> <%=  rs.getString("Age")	%> </td>
+                        
+
+                 </tr>
+                 
+             
+                     <%
+                    
+                  // RequestDispatcher requestDispatcher = request.getRequestDispatcher("student.jsp");
+                 //requestDispatcher.forward(request, response);
+                 }
+              
+             
+              conn.close();
+              
+          }
+          catch(Exception e)
+          {
+              
+//writer.println("Error :- "+e); 
+          }
+             %>
+             </table>
+             </br>
+                 
+                
+          </div>
+            
+           
+        </article>
+    
+<footer>
+    <Marquee direction="left" style=" color: red;"> Digital Car Showroom, Ghatkopar , Mumbai-400086 </marquee>
+    </footer>
+
+</body>
+  
+</html>
